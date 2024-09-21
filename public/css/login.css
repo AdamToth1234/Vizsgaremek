@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+body {
+    margin: 0;
+    font-family: "Roboto";
+    box-sizing: border-box;
+    background-color: rgb(200, 219, 179);
+    background-image: url("/img/bg-image.jpg");
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+    background-color: white;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.logo-div {
+    display: flex;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: 0.7s;
+    font-weight: bold;
+}
+
+.logo-div p {
+    margin-left: 15px;
+}
+
+.tool-div {
+    display: flex;
+    font-size: 1.3rem;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tool-div span {
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+i {
+    margin-right: 10px;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    min-height: 90vh;
+    width: 100%;
+}
+
+.login form {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px black solid;
+    box-shadow: -10px 10px 50px black;
+}
+
+.login label {
+    font-size: 1.2rem;
+}
+
+.login .login-welcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    font-size: 1.3rem;
+}
+
+.login input {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: inherit;
+}
+
+.login input {
+    margin-top: 10px;
+}
+
+.login button {
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.login button:hover {
+    background-color: rgb(189, 187, 187);
+}
+
+.login button span {
+    margin-right: 7px;
+}
+
+a {
+    color: rgb(20 110 190);
+}
+
+footer {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+footer .footer-introduction {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+footer .footer-information ul {
+    list-style: none;
+    display: flex;
+}
+
+footer .footer-information ul li {
+    
+}
+
+
+@media only screen and (min-width: 1200px) {
+    
+}

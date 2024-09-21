@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bejelentkezés</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/f5d27edf17.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <div class="logo-div">
+                <img src="/img/logo-color.png" alt=""><p>Könyvmolyok Menedéke</p>
+            </div>
+        </a>
+        <div class="tool-div">
+            <span><i class="fa-solid fa-right-to-bracket"></i>Bejelentkezés</span>
+            <span><i class="fa-solid fa-cart-shopping"></i>Kosár</span>
+        </div>
+    </nav>
+
+    <main>
+        <div class="login">
+            <form action="/login" method="POST">
+                <div class="login-welcome">
+                    <span style="font-size: 1.6rem;">ÜDVÖZLÜNK ISMÉT!</span>
+                    <span>Kezd el használni szolgáltatásainkat még ma!</span>
+                </div>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <label for="password">Jelszó</label>
+                <input type="password" name="password" id="password">
+                <span style="margin-bottom: 35px; text-align: center;"><a href="#">Elfelejtetted a jelszavadat?</a></span>
+                <button type="submit"><span>Bejelentkezés</span><i class="fa-solid fa-right-to-bracket"></i></button>
+                <span style="margin-top: 20px; text-align: center;"><a href="/register">Még nincs fiókod? Regisztrálj itt!</a></span>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-introduction">
+            <div class="footer-introduction-text">
+                <h3>Könyvmolyok Menedéke</h3>
+                <p>Egy csodás hely, ahol könyvek sokasága található. <br>Gyere, és csatlakozz eme élményhez!</p>
+            </div>
+            <div>
+                <a href="/"><img src="/img/logo-color-big.png" alt=""></a>
+            </div>
+        </div>
+        <div class="footer-information">
+            <ul>
+                <li>dwadwa</li>
+                <li>dwhjadhjwah</li>
+                <li>dgwahdghjwaghj</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
