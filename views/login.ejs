@@ -11,33 +11,7 @@
     <script src="/js/script.js" defer></script>
 </head>
 <body>
-    <nav>
-        <div class="overlay">
-            <ul class="menu-overlay">
-                <li><a href="#"><i class="fa-solid fa-right-to-bracket"></i>Bejelentkezés</a></li>
-                <li><a href="#"><i class="fa-solid fa-cart-shopping"></i>Kosár</a></li>
-                <li><a href="#"><i class="fa-solid fa-info"></i>Rólunk</a></li>
-            </ul>
-            <div class="close">
-                <i class="fa-solid fa-xmark" style="font-size: 30px;"></i>
-            </div>
-        </div>
-        <a href="/">
-            <div class="logo-div">
-                <img src="/img/logo-color.png" alt=""><p>Könyvmolyok Menedéke</p>
-            </div>
-        </a>
-        <div class="tool-div">
-            <a href="#"><i class="fa-solid fa-right-to-bracket"></i>Bejelentkezés</a>
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i>Kosár</a>
-            <a href="#"><i class="fa-solid fa-info"></i>Rólunk</a>
-        </div>
-        <div class="hamburger">
-            <span class="hamburger-item"></span>
-            <span class="hamburger-item"></span>
-            <span class="hamburger-item"></span>
-        </div>
-    </nav>
+    <%- include("nav.ejs") -%>
 
     <main>
         <div class="login">

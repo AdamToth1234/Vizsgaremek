@@ -31,7 +31,7 @@ app.post("/login", passport.authenticate("local", {
 
 
 app.get("/", (req, res) => {
-    res.send("Szia")
+    res.render("index")
 })
 
 app.get('/login', checkNotAuthenticated, (req, res) => {

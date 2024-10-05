@@ -5,7 +5,6 @@ body {
     margin: 0;
     font-family: "Roboto";
     box-sizing: border-box;
-    background-color: rgb(200, 219, 179);
     background-image: url("/img/bg-image.jpg");
     height: 100%;
 }
@@ -23,6 +22,9 @@ nav {
     justify-content: space-evenly;
     padding: 5px;
     background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 .overlay {
@@ -155,15 +157,12 @@ i {
 }
 
 .login input {
+    margin-top: 10px;
     margin-bottom: 15px;
     font-size: 1.3rem;
     border-radius: 10px;
     padding: 10px;
-    font-family: inherit;
-}
-
-.login input {
-    margin-top: 10px;
+    font-family: "Jacquarda Bastarda";
 }
 
 .login button {
@@ -231,6 +230,15 @@ footer .footer-img a {
     margin-bottom: 10px;
 }
 
+::placeholder {
+    font-family: "Roboto";
+    overflow: hidden;
+}
+
+::-ms-input-placeholder {
+    font-family: "Roboto";
+}
+
 
 @media (max-width: 774px) {
     nav {
@@ -258,6 +266,10 @@ footer .footer-img a {
 }
 
 @media (max-width: 600px) {
+    .login .login-welcome {
+        text-align: center;
+    }
+
     footer .footer-introduction .footer-introduction-text {
         margin-right: 0;
         width: 100%;
