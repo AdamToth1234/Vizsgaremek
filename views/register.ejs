@@ -8,17 +8,34 @@
     <link rel="stylesheet" href="/css/login.css">
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/f5d27edf17.js" crossorigin="anonymous"></script>
+    <script src="/js/script.js" defer></script>
 </head>
 <body>
     <nav>
+        <div class="overlay">
+            <ul class="menu-overlay">
+                <li><a href="#"><i class="fa-solid fa-right-to-bracket"></i>Bejelentkezés</a></li>
+                <li><a href="#"><i class="fa-solid fa-cart-shopping"></i>Kosár</a></li>
+                <li><a href="#"><i class="fa-solid fa-info"></i>Rólunk</a></li>
+            </ul>
+            <div class="close">
+                <i class="fa-solid fa-xmark" style="font-size: 30px;"></i>
+            </div>
+        </div>
         <a href="/">
             <div class="logo-div">
                 <img src="/img/logo-color.png" alt=""><p>Könyvmolyok Menedéke</p>
             </div>
         </a>
         <div class="tool-div">
-            <span><i class="fa-solid fa-right-to-bracket"></i>Bejelentkezés</span>
-            <span><i class="fa-solid fa-cart-shopping"></i>Kosár</span>
+            <a href="#"><i class="fa-solid fa-right-to-bracket"></i>Bejelentkezés</a>
+            <a href="#"><i class="fa-solid fa-cart-shopping"></i>Kosár</a>
+            <a href="#"><i class="fa-solid fa-info"></i>Rólunk</a>
+        </div>
+        <div class="hamburger">
+            <span class="hamburger-item"></span>
+            <span class="hamburger-item"></span>
+            <span class="hamburger-item"></span>
         </div>
     </nav>
 
@@ -42,28 +59,11 @@
                 <% if (locals.message) { %>
                     <p><%= locals.message %></p>
                 <% } else { %>
-                    <p></p>
+                    <%  %>
                 <% } %>
             </form>
         </div>
     </main>
-    <footer>
-        <div class="footer-introduction">
-            <div class="footer-introduction-text">
-                <h3>Könyvmolyok Menedéke</h3>
-                <p>Egy csodás hely, ahol könyvek sokasága található. <br>Gyere, és csatlakozz eme élményhez!</p>
-            </div>
-            <div>
-                <a href="/"><img src="/img/logo-color-big.png" alt=""></a>
-            </div>
-        </div>
-        <div class="footer-information">
-            <ul>
-                <li>dwadwa</li>
-                <li>dwhjadhjwah</li>
-                <li>dgwahdghjwaghj</li>
-            </ul>
-        </div>
-    </footer>
+    <%- include("footer.ejs") -%>
 </body>
 </html>
