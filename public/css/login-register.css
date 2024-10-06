@@ -5,8 +5,9 @@ body {
     margin: 0;
     font-family: "Roboto";
     box-sizing: border-box;
-    background-image: url("/img/bg-image.jpg");
+    /* background-image: url("/img/bg-image.jpg"); */
     height: 100%;
+    background-color: rgba(239, 237, 237, 0.936);
 }
 
 :root {
@@ -123,31 +124,31 @@ i {
     margin-right: 10px;
 }
 
-.login {
+.login, .register {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-around;
+    /* flex-direction: column; */
     border-radius: 10px;
     min-height: 100vh;
     width: 100%;
 }
 
-.login form {
+.login form, .register form {
     display: flex;
     flex-direction: column;
     background-color: white;
     padding: 50px;
     border-radius: 20px;
-    border: 1px black solid;
-    box-shadow: -10px 10px 50px black;
+    /* border: 1px black solid; */
+    box-shadow: -5px 10px 60px black;
 }
 
-.login label {
-    font-size: 1.2rem;
+.login label, .register label {
+    font-size: 1.3rem;
 }
 
-.login .login-welcome {
+.login .login-welcome, .register .register-welcome {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -156,16 +157,17 @@ i {
     font-size: 1.3rem;
 }
 
-.login input {
+.login input, .register input {
     margin-top: 10px;
     margin-bottom: 15px;
     font-size: 1.3rem;
     border-radius: 10px;
-    padding: 10px;
-    font-family: "Jacquarda Bastarda";
+    padding: 15px;
+    font-family: "Roboto";
+    border: 2px solid rgb(39, 70, 107);
 }
 
-.login button {
+.login button, .register button {
     font-size: 1.5rem;
     cursor: pointer;
     border-radius: 10px;
@@ -173,11 +175,11 @@ i {
     transition: 0.3s;
 }
 
-.login button:hover {
+.login button:hover, .register button:hover {
     background-color: rgb(189, 187, 187);
 }
 
-.login button span {
+.login button span, .register button span {
     margin-right: 7px;
 }
 
@@ -194,6 +196,7 @@ footer {
     align-items: center;
     justify-content: space-evenly;
     padding: 10px;
+    /* background-color: #d9e4ea; */
     background-color: white;
 }
 
@@ -240,6 +243,13 @@ footer .footer-img a {
 }
 
 
+@media (max-width: 992px) {
+    .login, .register {
+        flex-direction: column;
+        margin: 50px 0;
+    }
+}
+
 @media (max-width: 774px) {
     nav {
         padding: 0;
@@ -266,7 +276,7 @@ footer .footer-img a {
 }
 
 @media (max-width: 600px) {
-    .login .login-welcome {
+    .login .login-welcome, .register .register-welcome {
         text-align: center;
     }
 
@@ -282,5 +292,12 @@ footer .footer-img a {
 
     footer .footer-img {
         display: none;
+    }
+}
+
+@media (max-width: 431px) {
+    .login img, .register img {
+        width: 100%;
+        height: auto;
     }
 }
