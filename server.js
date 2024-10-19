@@ -5,19 +5,8 @@ const bodyParser = require("body-parser")
 const session = require("express-session")
 const passport = require("./passport-local")
 const collectionUser = require("./models/user_config")
-const mongoose = require("mongoose")
 const get_routes = require("./routes/get_route")
-
-
-const connect = mongoose.connect("mongodb+srv://vizsgaremek5:xUzMGihibSvk8GrM@cluster0.3p9yg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-
-connect.then(() => {
-    console.log("Sikeres csatlakozás az adatbázishoz!");
-})
-.catch(() => {
-    console.log("Nem található az adatbázis!")
-
-})
+const connect = require("./connect_db")
 
 const app = express()
 
@@ -64,8 +53,6 @@ app.post("/register", async (req, res) => {
         res.redirect("/login")
     }
 })
-
-
 
 
 function checkAuthenticated(req, res, next) {
