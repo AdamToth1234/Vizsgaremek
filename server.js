@@ -6,6 +6,7 @@ const session = require("express-session")
 const passport = require("./passport-local")
 const collectionUser = require("./models/user_config")
 const mongoose = require("mongoose")
+const get_routes = require("./routes/get_route")
 
 
 const connect = mongoose.connect("mongodb+srv://vizsgaremek5:xUzMGihibSvk8GrM@cluster0.3p9yg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
@@ -33,6 +34,7 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
+app.use("/", get_routes)
 
 
 app.post("/login", passport.authenticate("local", {
@@ -40,19 +42,6 @@ app.post("/login", passport.authenticate("local", {
     failureRedirect: "/login",
     failureFlash: false
 }))
-
-
-app.get("/", (req, res) => {
-    res.render("index")
-})
-
-app.get('/login', checkNotAuthenticated, (req, res) => {
-    res.render("login")
-});
-
-app.get("/register", checkNotAuthenticated, (req, res) => {
-    res.render("register")
-})
 
 app.post("/register", async (req, res) => {
     const data = {
@@ -74,19 +63,6 @@ app.post("/register", async (req, res) => {
         await collectionUser.insertMany(data)
         res.redirect("/login")
     }
-})
-
-app.get("/dashboard", checkAuthenticated, (req, res) => {
-    res.send(`Welcome to your dashboard, ${req.user.email}<br><a href="/logout">Kijelentkezés</a>`);
-})
-
-app.get("/logout", checkAuthenticated, (req, res) => {
-    req.logOut((err) => {
-        if (err) {
-            return next(error)
-        }
-    })
-    res.redirect("/login")
 })
 
 
