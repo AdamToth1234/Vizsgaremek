@@ -14,14 +14,6 @@ html {
     scroll-behavior: smooth;
 }
 
-i {
-    margin-right: 10px;
-    cursor: pointer;
-    background-color: rgb(151, 151, 151);
-    border-radius: 20px 0px;
-    padding: 10px;
-}
-
 .login, .register {
     display: flex;
     align-items: center;

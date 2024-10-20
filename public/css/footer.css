@@ -17,6 +17,7 @@ footer .footer-introduction .footer-introduction-text {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin: 20px 0;
 }
 
 footer .footer-introduction .footer-introduction-text ul {
@@ -38,6 +39,18 @@ footer .footer-img {
 
 footer .footer-img a {
     margin-bottom: 10px;
+}
+
+i {
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: rgb(151, 151, 151);
+    border-radius: 20px 0px;
+    padding: 10px;
+}
+
+.h3, h3 {
+    font-size: 1.17em;
 }
 
 
