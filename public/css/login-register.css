@@ -5,9 +5,8 @@ body {
     margin: 0;
     font-family: "Roboto";
     box-sizing: border-box;
-    /* background-image: url("/img/bg-image.jpg"); */
     height: 100%;
-    background-color: rgba(239, 237, 237, 0.936);
+    background-color: rgb(59, 59, 59);
 }
 
 html {
@@ -17,23 +16,24 @@ html {
 .login, .register {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     /* flex-direction: column; */
     border-radius: 10px;
-    min-height: 100vh;
-    width: 100%;
-    margin: 10px 0;
+    min-height: 90vh;
     height: auto;
+    color: white;
 }
 
 .login form, .register form {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: rgb(68, 68, 68);
     padding: 30px;
     border-radius: 20px;
-    box-shadow: -5px 10px 60px black;
-    margin-top: 10px;
+    box-shadow: 0px 10px 30px black;
+    width: 400px;
+    margin: 20px;
+    /* width: 80%; */
 }
 
 .login label, .register label {
@@ -51,10 +51,10 @@ html {
 
 .login input, .register input {
     margin-top: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     font-size: 1.3rem;
     border-radius: 10px;
-    padding: 12px;
+    padding: 16px;
     font-family: "Roboto";
     border: 2px solid rgb(39, 70, 107);
 }
@@ -67,6 +67,10 @@ html {
     transition: 0.3s;
 }
 
+.register button {
+    margin-top: 15px;
+}
+
 .login button:hover, .register button:hover {
     background-color: rgb(189, 187, 187);
 }
@@ -76,7 +80,7 @@ html {
 }
 
 a {
-    color: rgb(20 110 190);
+    color: rgb(34, 151, 253);
 }
 
 ::placeholder {
@@ -90,11 +94,11 @@ a {
 
 
 @media (max-width: 992px) {
-    .login, .register {
+    /* .login, .register {
         flex-direction: column;
-        margin: 50px 5px;
+        margin: 50px 100px;
         width: 95%;
-    }
+    } */
 }
 
 @media (max-width: 600px) {
@@ -107,5 +111,16 @@ a {
     .login img, .register img {
         width: 100%;
         height: auto;
+    }
+}
+
+@media (max-width: 425px) {
+    /* .login form, .register form {
+        width: 230px;
+        padding: 23px;
+    } */
+
+    .login, .register {
+        transform: scale(0.8);
     }
 }

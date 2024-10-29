@@ -4,7 +4,8 @@ footer {
     justify-content: space-evenly;
     padding: 10px;
     /* background-color: white; */
-    background-color: rgba(201, 201, 201, 0.936);
+    background-color: rgba(26, 26, 26, 0.97);
+    color: white;
 }
 
 footer .footer-introduction {
@@ -18,6 +19,10 @@ footer .footer-introduction .footer-introduction-text {
     flex-direction: column;
     justify-content: space-evenly;
     margin: 20px 0;
+}
+
+footer .footer-introduction .footer-introduction-text p {
+    margin: 16px 0;
 }
 
 footer .footer-introduction .footer-introduction-text ul {
@@ -44,13 +49,14 @@ footer .footer-img a {
 i {
     margin-right: 10px;
     cursor: pointer;
-    background-color: rgb(151, 151, 151);
-    border-radius: 20px 0px;
+    background-color: rgb(72, 72, 72);
+    border-radius: 20px 11px;
     padding: 10px;
 }
 
 .h3, h3 {
     font-size: 1.17em;
+    margin: 18px 0;
 }
 
 

@@ -16,18 +16,18 @@
     <%- include("nav.ejs") -%>
     <main>
         <div class="register">
-            <img src="/img/test.png" alt="">
+            <!-- <img src="/img/test.png" alt=""> -->
             <form action="/register" method="POST">
                 <div class="register-welcome">
                     <span style="font-size: 1.6rem;">REGISZTRÁCIÓ</span>
                     <span>Kezd el használni szolgáltatásainkat még ma!</span>
                 </div>
                 <label for="vnev">Vezetéknév</label>
-                <input type="text" name="vnev" id="vnev">
+                <input type="text" name="vnev" id="vnev" placeholder="Tóth">
                 <label for="knev">Keresztnév</label>
-                <input type="" name="knev" id="knev">
+                <input type="" name="knev" id="knev" placeholder="Ádám">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" placeholder="vizsgaremek5@gmail.com">
                 <label for="password">Jelszó</label>
                 <input type="password" name="password" id="password">
                 <button type="submit"><span>Regisztráció</span></button>

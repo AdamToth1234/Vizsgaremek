@@ -9,16 +9,27 @@ body {
 .introduction {
     display: flex;
     justify-content: space-around;
-    background-color: #A68F72;
+    align-items: center;
+    /* background-color: #A68F72; */
     padding: 20px;
+    background-image: url("/img/bg-introduction.jpg");
+    background-position: top;
+    height: 800px;
+}
+
+.introduction .introduction-text {
+    color: white;
+    position: absolute;
+    top: 260px;
+    margin: 10px;
 }
 
 .introduction .introduction-text h1 {
-    font-size: 2rem;
+    font-size: 2.7rem;
 }
 
 .introduction .introduction-text p {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin: 0;
 }
 
@@ -26,17 +37,12 @@ body {
     margin-bottom: 40px;
 }
 
-.introduction img {
-    width: 31%;
-    height: 100%;
-    margin: 0;
-}
-
 .services {
-    /* display: flex;
-    justify-content: space-evenly; */
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
-    background-color: #A6806A;
+    /* background-color: #A6806A; */
+    background-color: rgb(15, 15, 15);
     padding: 20px;
 }
 
@@ -46,23 +52,27 @@ body {
     /* display: flex; */
 }
 
+.services .cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .services .cards .card {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #8B6E5C;
+    /* background-color: #9e7761; */
+    background-color: rgb(25, 25, 25);
     padding: 15px;
     /* clip-path: polygon(17% 1%, 83% 0, 96% 50%, 86% 100%, 15% 100%, 7% 52%); */
-    border-radius: 20px;
+    border-radius: 20px 30px;
     font-size: 1.2rem;
-    max-width: 600px;
-}
-
-.services .cards {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 400px;
+    min-width: 200px;
+    height: 370px;
+    color: white;
 }
 
 .services .cards .card:first-child, .services .cards .card:nth-child(2){
@@ -76,12 +86,95 @@ body {
 .services .cards .card img {
     border-radius: 40px;
     margin-bottom: 20px;
-    width: 90%;
-    height: auto;
 }
 
 .services .cards .card span {
     text-align: center;
+}
+
+.brief-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(20, 20, 20);
+    color: rgb(223, 223, 223);
+    padding: 30px;
+}
+
+.brief-text p {
+    width: 50%;
+    font-size: 1.5rem;
+}
+
+.brief-text p:first-child {
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid white;
+}
+
+.brief-text p span {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+.reviews {
+    background-color: rgb(15, 15, 15);
+    padding: 20px;
+    padding-top: 10px;
+    font-size: 2rem;
+}
+
+.reviews .review-cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.reviews .review-cards .review {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(25, 25, 25);
+    width: 100%;
+    max-width: 800px;
+    min-height: 800px;
+    border-radius: 20px 10px;
+    padding: 35px;
+    margin-bottom: 50px;
+    color: rgb(216, 216, 216);
+    margin-right: 10px;
+}
+
+.reviews .review-cards .review p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    font-size: 1.5rem;
+}
+
+.reviews .review-cards .review i {
+    background-color: inherit;
+    font-size: 3rem;
+    margin: 10px 0;
+    padding: 0;
+}
+
+.reviews .review-cards h1 {
+    color: white;
+    margin: 50px 0 80px 0;
+    text-align: center;
+}
+
+.reviews .review-cards .review:last-child {
+    margin-right: 0;
+}
+
+.reviews .review-cards .review img {
+    border-radius: 50%;
 }
 
 
@@ -95,15 +188,41 @@ body {
     .introduction .introduction-text {
         text-align: center;
     }
+}
 
-    .introduction img {
-        width: 85%;
+@media (max-width: 860px) {
+    .services .cards .card {
+        max-width: 1000px;
+        width: 100%;
+    }
+
+    .services .cards .card:first-child, .services .cards .card:nth-child(2) {
+        margin: 0 0 15px 0;
+    }
+
+    .brief-text p {
+        width: 70%;
     }
 }
 
+@media (max-width: 425px) {
+    .brief-text p {
+        width: 90%;
+    }
+}
 
-@media (max-width: 768px) {
-    .services .cards .card:first-child, .services .cards .card:nth-child(2) {
-        margin: 0 0 15px 0;
+@media (max-width: 375px) {
+    .brief-text {
+        padding: 10px;
+    }
+
+    .brief-text p {
+        width: 100%;
+        transform: scale(0.8);
+    }
+
+    .brief-text p:first-child {
+        margin-bottom: 0;
+        padding-bottom: 100px;
     }
 }
