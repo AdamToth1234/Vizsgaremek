@@ -132,6 +132,12 @@ body {
     justify-content: space-evenly;
 }
 
+.reviews .review-cards h1 {
+    color: white;
+    margin: 50px 0 80px 0;
+    text-align: center;
+}
+
 .reviews .review-cards .review {
     display: flex;
     align-items: center;
@@ -148,6 +154,14 @@ body {
     margin-right: 10px;
 }
 
+.reviews .review-cards .review:last-child {
+    margin-right: 0;
+}
+
+.reviews .review-cards .review img {
+    border-radius: 50%;
+}
+
 .reviews .review-cards .review p {
     display: flex;
     flex-direction: column;
@@ -156,25 +170,30 @@ body {
     font-size: 1.5rem;
 }
 
-.reviews .review-cards .review i {
+.reviews .review-cards .review p span:first-child {
+    font-weight: bold;
+}
+
+.reviews .review-cards .review p i {
     background-color: inherit;
     font-size: 3rem;
     margin: 10px 0;
     padding: 0;
 }
 
-.reviews .review-cards h1 {
-    color: white;
-    margin: 50px 0 80px 0;
-    text-align: center;
+.reviews .review-cards .review .stars {
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-.reviews .review-cards .review:last-child {
-    margin-right: 0;
-}
-
-.reviews .review-cards .review img {
-    border-radius: 50%;
+.reviews .review-cards .review .stars i {
+    background-color: inherit;
+    margin: 0;
+    color: orange;
+    font-size: 2.3rem;
 }
 
 
@@ -208,6 +227,14 @@ body {
 @media (max-width: 425px) {
     .brief-text p {
         width: 90%;
+    }
+
+    .reviews .review-cards .review .stars {
+        align-self: center;
+    }
+    
+    .reviews .review-cards .review .stars i {
+        font-size: 1.8rem;
     }
 }
 
