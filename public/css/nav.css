@@ -42,12 +42,13 @@ nav {
     z-index: 999;
     position: fixed;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     transform: translate(100%, -10px);
     right: 0;
     transition: transform var(--transition);
+    overflow: scroll;
+    padding: 5px 0;
 }
 
 .overlay.transform {
@@ -55,10 +56,27 @@ nav {
     transition: transform var(--transition);
 }
 
-.overlay .overlay-logo {
-    position: absolute;
-    top: 17px;
-    left: 25px;
+.overlay .overlay-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 60px;
+    padding: 0 18px;
+}
+
+.overlay .close {
+    cursor: pointer;
+    background-color: rgb(60, 60, 60);
+    border-radius: 15px;
+}
+
+.overlay .close i {
+    margin: 6px 9px;
+    padding: 5px;
+    color: rgb(208, 208, 208);
+    font-weight: bold;
+    background-color: transparent;
 }
 
 .overlay .menu-overlay {
@@ -72,12 +90,12 @@ nav {
     font-weight: bold;
     font-size: 1.1rem;
     width: 100%;
-    position: fixed;
-    top: 220px;
+    margin-bottom: 50px;
 }
 
 .overlay .menu-overlay a li {
     padding: 30px;
+    padding-left: 20px;
 }
 
 .overlay .overlay-login-button {
@@ -91,26 +109,8 @@ nav {
     color: rgb(240, 237, 237);
     font-weight: 700;
     width: 90%;
-    margin-top: 30px;
     text-align: center;
-    position: fixed;
-    bottom: 320px;
-}
-
-.overlay .close {
-    position: absolute;
-    top: 30px;
-    right: 25px;
-    cursor: pointer;
-    background-color: rgb(72, 72, 72);
-    border-radius: 15px;
-}
-
-.overlay .close i {
-    margin: 6px 9px;
-    padding: 5px;
-    color: rgb(208, 208, 208);
-    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 nav a {
