@@ -168,13 +168,19 @@ a {
 }
 
 @media (max-width: 425px) {
-    .login, .register {
-        transform: scale(0.7);
-        min-height: 45vh;
+    .login {
+        transform: scale(0.8);
+        min-height: 30vh;
     }
 
     .register {
         transform: scale(0.66);
         max-height: 70vh;
+    }
+}
+
+@media (max-width: 375px) {
+    .login {
+        transform: scale(0.7);
     }
 }
