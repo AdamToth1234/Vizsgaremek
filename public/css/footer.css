@@ -4,7 +4,7 @@ footer {
     justify-content: space-evenly;
     padding: 10px;
     /* background-color: white; */
-    background-color: rgba(26, 26, 26, 0.97);
+    background-color: rgb(26, 26, 26);
     color: white;
 }
 
@@ -35,6 +35,10 @@ footer .footer-introduction .footer-introduction-text ul {
 
 footer .footer-introduction .footer-introduction-text ul li{
     margin-right: 20px;
+}
+
+footer .footer-introduction .footer-introduction-text span i {
+    cursor: default;
 }
 
 footer .footer-img {

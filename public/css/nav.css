@@ -1,3 +1,7 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 :root {
     --transition: 400ms ease-in-out;
 }
@@ -10,10 +14,6 @@ nav {
     position: sticky;
     top: 0;
     z-index: 99;
-}
-
-* {
-    -webkit-tap-highlight-color: transparent;
 }
 
 .overlay {

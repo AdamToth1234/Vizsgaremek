@@ -11,6 +11,7 @@
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/f5d27edf17.js" crossorigin="anonymous"></script>
     <script src="/js/script.js" defer></script>
+    <script src="/js/login-register.js" defer></script>
 </head>
 <body>
     <%- include("nav.ejs") -%>
@@ -30,8 +31,9 @@
                 <input type="email" name="email" id="email" placeholder="vizsgaremek5@gmail.com">
                 <label for="password">Jelszó</label>
                 <input type="password" name="password" id="password">
+                <i class="fa-regular fa-eye fa-eye-register"></i>
                 <button type="submit"><span>Regisztráció</span></button>
-                <span style="margin-top: 20px; text-align: center;"><a href="/login">Már van fiókod? Jelentkezz be itt!</a></span>
+                <span style="margin-top: 20px; text-align: center;">Már van fiókod? <a href="/login">Jelentkezz be itt!</a></span>
                 <% if (locals.message) { %>
                     <p><%= locals.message %></p>
                 <% } else { %>

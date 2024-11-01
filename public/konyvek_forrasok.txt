@@ -1,0 +1,7 @@
+https://www.libri.hu/konyv/moricz_zsigmond.legy-jo-mindhalalig--17.html;https://s06.static.libri.hu/cover/73/5/1941058_5.jpg
+https://www.libri.hu/konyv/moricz_zsigmond.uri-muri--18.html;https://s06.static.libri.hu/cover/82/b/11146291_5.jpg
+https://www.libri.hu/konyv/naray_tamas.apam-szerint--1.html;https://s01.static.libri.hu/cover/f0/e/11379269_4.jpg
+https://www.libri.hu/konyv/raven_anne.karacsonyi-bakancslista.html;https://s01.static.libri.hu/cover/97/6/11267585_4.jpg
+https://www.libri.hu/konyv/kate_vargha.a-kereszt-halala.html;https://s01.static.libri.hu/cover/b5/9/11206107_4.jpg
+https://s01.static.libri.hu/cover/09/b/11222104_4.jpg;https://www.libri.hu/konyv/jo_nesbo.versegi-kotelek.html
+https://www.libri.hu/konyv/jokai_mor.jokai-karacsonya.html;https://s01.static.libri.hu/cover/f8/d/11262659_4.jpg
