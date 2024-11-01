@@ -6,6 +6,10 @@
     scrollbar-color: rgb(158, 155, 155) black;
 }
 
+:root {
+    --login-register-button: linear-gradient(to right, rgb(47, 95, 158), rgb(35, 43, 139));
+}
+
 body {
     margin: 0;
     font-family: "Roboto";
@@ -26,15 +30,15 @@ html {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    /* flex-direction: column; */
     border-radius: 10px;
     min-height: 85vh;
-    height: auto;
     color: white;
+    width: 100%;
 }
 
 .register {
     margin-bottom: 20px;
+    min-height: 90vh;
 }
 
 .login form, .register form {
@@ -47,7 +51,10 @@ html {
     box-shadow: 0px 10px 30px black;
     width: 400px;
     margin: 20px;
-    /* width: 80%; */
+}
+
+.register form {
+    width: 460px;
 }
 
 .login label, .register label {
@@ -94,7 +101,7 @@ html {
 
 .fa-eye-register {
     position: relative;
-    bottom: 47px;
+    bottom: 50px;
     left: 350px;
     background-color: transparent;
     width: 30px;
@@ -106,7 +113,7 @@ html {
     border-radius: 10px;
     padding: 15px;
     transition: 0.3s;
-    background: linear-gradient(to right, rgb(47, 95, 158), rgb(35, 43, 139));
+    background: var(--login-register-button);
     border: none;
     color: rgb(240, 237, 237);
     font-weight: 700;
@@ -155,16 +162,19 @@ a {
 @media (max-width: 768px) {
     .register {
         transform: scale(0.8);
+        max-height: 80vh;
+        min-height: 0;
     }
 }
 
 @media (max-width: 425px) {
-    /* .login form, .register form {
-        width: 230px;
-        padding: 23px;
-    } */
-
     .login, .register {
         transform: scale(0.7);
+        min-height: 45vh;
+    }
+
+    .register {
+        transform: scale(0.66);
+        max-height: 70vh;
     }
 }
