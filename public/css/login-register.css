@@ -163,11 +163,12 @@ a {
 @media (max-width: 425px) {
     .login {
         transform: scale(0.8);
-        min-height: 30vh;
+        min-height: 600px;
     }
-
+    
     .register {
         transform: scale(0.7);
+        min-height: 600px;
         max-height: 70vh;
     }
 }
