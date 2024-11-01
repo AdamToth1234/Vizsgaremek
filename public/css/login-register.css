@@ -37,6 +37,7 @@ html {
 }
 
 .register {
+    margin-top: 20px;
     margin-bottom: 20px;
     min-height: 90vh;
 }
@@ -145,14 +146,6 @@ a {
 }
 
 
-@media (max-width: 992px) {
-    /* .login, .register {
-        flex-direction: column;
-        margin: 50px 100px;
-        width: 95%;
-    } */
-}
-
 @media (max-width: 600px) {
     .login .login-welcome, .register .register-welcome {
         text-align: center;
@@ -163,7 +156,7 @@ a {
     .register {
         transform: scale(0.8);
         max-height: 80vh;
-        min-height: 0;
+        min-height: 70vh;
     }
 }
 
@@ -174,13 +167,18 @@ a {
     }
 
     .register {
-        transform: scale(0.66);
+        transform: scale(0.7);
         max-height: 70vh;
     }
 }
 
 @media (max-width: 375px) {
     .login {
-        transform: scale(0.7);
+        transform: scale(0.75);
+        height: 600px;
+    }
+
+    .register {
+        min-height: 600px;
     }
 }
