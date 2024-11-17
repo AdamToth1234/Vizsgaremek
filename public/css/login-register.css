@@ -176,10 +176,5 @@ a {
 @media (max-width: 375px) {
     .login {
         transform: scale(0.75);
-        height: 600px;
-    }
-
-    .register {
-        min-height: 600px;
     }
 }

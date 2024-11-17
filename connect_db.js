@@ -1,14 +1,20 @@
-const mongoose = require("mongoose")
+const { MongoClient }  = require("mongodb")
 
-const connect = mongoose.connect("mongodb+srv://vizsgaremek5:xUzMGihibSvk8GrM@cluster0.3p9yg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+const uri = "mongodb+srv://vizsgaremek5:xUzMGihibSvk8GrM@cluster0.3p9yg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const client = new MongoClient(uri);
+                      
+async function connect() {
+    try {
+        await client.connect();
+        var db = client.db("library");
+    }
 
-connect.then(() => {
-    console.log("Sikeres csatlakozás az adatbázishoz!");
-})
-.catch(() => {
-    console.log("Nem található az adatbázis!")
+    catch {
+        console.log("Nem sikerült az adatbázis elérése");
+    }
 
-})
+    return db
+}
 
 
-module.exports = connect
+module.exports = { connect, client }

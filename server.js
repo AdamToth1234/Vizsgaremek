@@ -4,10 +4,8 @@ const bcrypt = require("bcrypt")
 const bodyParser = require("body-parser")
 const session = require("express-session")
 const passport = require("./passport-local")
-const collectionUser = require("./models/user_config")
+const { connect, client } = require("./connect_db")
 const get_routes = require("./routes/get_route")
-const connect = require("./connect_db")
-
 const app = express()
 
 app.set("view engine", "ejs")
@@ -33,6 +31,7 @@ app.post("/login", passport.authenticate("local", {
 }))
 
 app.post("/register", async (req, res) => {
+    const result = []
     const data = {
         vnev: req.body.vnev,
         knev: req.body.knev,
@@ -40,16 +39,25 @@ app.post("/register", async (req, res) => {
         password: req.body.password
     }
 
-    const existingUser = await collectionUser.findOne({ email: data.email })
+    result.push(data)
+
+    // const existingUser = await collectionUser.findOne({ email: data.email })
+    const db = await connect()
+    const col = db.collection("users")
+
+    const existingUser = await col.findOne({ email: data.email })
+    
 
     if (existingUser) {
         res.render("register", { message: "Létezik ez az email cím! Használjon másikat!" })
+        await client.close();
     } else {
         const hashedPassword = await bcrypt.hash(data.password, 10)
 
         data.password = hashedPassword
 
-        await collectionUser.insertMany(data)
+        await col.insertMany(result)
+        await client.close();
         res.redirect("/login")
     }
 })

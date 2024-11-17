@@ -1,6 +1,6 @@
 const passport = require("passport")
 const LocalStrategy = require("passport-local").Strategy
-const User = require("./models/user_config")
+const { connect, client } = require("./connect_db")
 const bcrypt = require("bcrypt")
 
 passport.use(new LocalStrategy({
@@ -8,8 +8,12 @@ passport.use(new LocalStrategy({
     passwordField: "password"
     },
     async function(email, password, done) {
+        const db = await connect()
+        const col = db.collection("users")
+
+        const user = await col.findOne({ email: email})
+        await client.close();
         
-        const user = await User.findOne({ email: email})
         if (!user) {
             return done(null, false, { message: "Nincs ilyen felhasználó ezzel az email címmel!" })
         }
@@ -22,11 +26,16 @@ passport.use(new LocalStrategy({
 ))
 
 passport.serializeUser(function(user, done) {
-    done(null, user._id)
+    done(null, user.email)
 })
 
-passport.deserializeUser(async function(_id, done) {
-    const user = await User.findOne({ _id: _id })
+passport.deserializeUser(async function(email, done) {
+    const db = await connect()
+    const col = db.collection("users")
+    const user = await col.findOne({ email: email})
+
+    await client.close();
+
     done(null, user)
 })
 
