@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router()
+const { connect, client } = require("../connect_db")
 
 
 router.get("/", (req, res) => {
@@ -14,8 +15,16 @@ router.get("/register", checkNotAuthenticated, (req, res) => {
     res.render("register")
 })
 
-router.get("/dashboard", checkAuthenticated, (req, res) => {
-    res.send(`Welcome to your dashboard, ${req.user.email}<br><a href="/logout">Kijelentkezés</a>`);
+router.get("/webshop", (req, res) => {
+    res.render("webshop")
+})
+
+router.get("/konyvek", async (req, res) => {
+    const db = await connect()
+    const col = db.collection("books")
+    const documents = await col.find().toArray()
+
+    res.status(200).json(documents)
 })
 
 router.get("/logout", checkAuthenticated, (req, res) => {

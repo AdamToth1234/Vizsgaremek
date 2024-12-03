@@ -25,7 +25,7 @@ app.use("/", get_routes)
 
 
 app.post("/login", passport.authenticate("local", {
-    successRedirect: "/dashboard",
+    successRedirect: "/webshop",
     failureRedirect: "/login",
     failureFlash: false
 }))
