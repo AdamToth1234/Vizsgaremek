@@ -37,7 +37,7 @@ body {
     margin-right: 25px;
 }
 
-.books-and-span {
+.books-and-category {
     margin-top: 20rem;
     display: flex;
     align-items: center;
@@ -46,20 +46,41 @@ body {
     justify-self: center;
 }
 
-.books-and-span .category{
+.books-and-category .category{
+    overflow: hidden;
+}
+
+.books-and-category .category .category-name {
     align-self: flex-start;
     color: white;
     font-size: 20px;
-    /* margin-bottom: 15px; */
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
 }
 
-.books-and-span .books {
+.books-and-category .category .category-name .arrows {
+    display: flex;
+    justify-content: space-between;
+}
+
+.books-and-category .category .category-name .arrows .arrow {
+    display: none;
+    cursor: pointer;
+}
+
+.books-and-category .category .category-name .arrows .arrow.active {
+    display: block;
+}
+
+.books-and-category .category .books {
     display: flex;
     flex-direction: row;
+    margin-bottom: 30px;
+    width: 1330px;
 }
 
-.books-and-span .books .book{
+.books-and-category .category .books .book{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -67,29 +88,35 @@ body {
     border: 1px white solid;
     padding: 20px;
     cursor: pointer;
+    min-width: 250px;
 }
 
-.books-and-span .books .book:not(:last-child) {
+.books-and-category .category .books .book.inactive{
+    display: none;
+}
+
+.books-and-category .category .books .book:not(:last-child) {
     margin-right: 20px;
 }
 
-.books-and-span .books .book img {
+
+.books-and-category .category .books .book img {
     width: 100px;
     height: auto;
 }
 
-.books-and-span .books .book .title {
+.books-and-category .category .books .book .title {
     font-weight: bold;
     font-size: 1.3rem;
     color: white;
 }
 
-.books-and-span .books .book .author {
+.books-and-category .category .books .book .author {
     color: white;
     opacity: 0.8;
 }
 
-.books-and-span .books .book button {
+.books-and-category .category .books .book button {
     background: linear-gradient(to right, rgb(47, 95, 158), rgb(35, 43, 139));
     border: none;
     color: white;
@@ -98,6 +125,11 @@ body {
     transition: var(--transition);
 }
 
-.books-and-span .books .book button:hover {
+.books-and-category .category .books .book button:hover {
     background: linear-gradient(to right, rgb(35, 43, 139), rgb(47, 95, 158));
+}
+
+.transform-books {
+    transform: translate3d(-1350px, 0px, 0px);
+    transition: 700ms ease-in-out;
 }
