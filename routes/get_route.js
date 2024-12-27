@@ -15,16 +15,21 @@ router.get("/register", checkNotAuthenticated, (req, res) => {
     res.render("register")
 })
 
-router.get("/webshop", (req, res) => {
-    res.render("webshop")
-})
-
 router.get("/konyvek", async (req, res) => {
     const db = await connect()
-    const col = db.collection("books")
-    const documents = await col.find().toArray()
+    const cols = await db.listCollections().toArray()
 
-    res.status(200).json(documents)
+    let documentList = []
+
+    for (const i of cols) {
+        if (i.name != "users" && i.name != "books") {
+            const col = db.collection(i.name)
+            const document = await col.find().toArray()
+            documentList.push(document)
+        }
+    }
+
+    res.status(200).json(documentList)
 })
 
 router.get("/logout", checkAuthenticated, (req, res) => {

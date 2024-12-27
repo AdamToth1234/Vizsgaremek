@@ -6,6 +6,8 @@ const session = require("express-session")
 const passport = require("./passport-local")
 const { connect, client } = require("./connect_db")
 const get_routes = require("./routes/get_route")
+const get_routes_webshop = require("./routes/get_route_webshop")
+
 const app = express()
 
 app.set("view engine", "ejs")
@@ -22,6 +24,8 @@ app.use(session({
 app.use(passport.initialize())
 app.use(passport.session())
 app.use("/", get_routes)
+app.use("/webshop", get_routes_webshop)
+
 
 
 app.post("/login", passport.authenticate("local", {

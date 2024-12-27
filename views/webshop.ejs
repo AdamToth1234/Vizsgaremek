@@ -8,9 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/nav.css">
-    <!-- <link rel="stylesheet" href="/css/footer.css"> -->
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/webshop.css">
+    <link rel="stylesheet" href="/css/footer.css">
     <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/f5d27edf17.js" crossorigin="anonymous"></script>
     <script src="/js/script.js" defer></script>
@@ -18,7 +18,7 @@
 </head>
 <body>
     <%- include("nav.ejs") -%>
-    <ul class="nav-books">
+    <!-- <ul class="nav-books">
         <li>Szülő</li>
         <li>Irodalom</li>
         <li>Történelem</li>
@@ -29,17 +29,13 @@
         <li>Tudomány és természet</li>
         <li>Pénz</li>
         <li>Lexikonok</li>
-    </ul>
-    <div class="books-and-category">
-        <di class="category">
+    </ul> -->
+    <main class="books-and-category">
+        <!-- <div class="category">
             <p class="category-name">
                 <span>Szépirodalmi könyvek</span>
-                <span class="arrows">
-                    <span class="arrow"><i class="fa-solid fa-chevron-left"></i></span> 
-                    <span class="arrow active"><i class="fa-solid fa-chevron-right"></i></span>
-                </span>
             </p>
-            <div class="books">
+            <div class="books row row-cols-lg-6">
                 <div class="book" data-id="1-1">
                     <img src="https://s01.static.libri.hu/cover/b6/b/711537_4.jpg" alt=""><br>
                     <span class="title">Magyar szókincstár</span><br>
@@ -71,97 +67,14 @@
                     <button>Kosárba</button>
                 </div>
                 <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/a9/3/5742714_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/a9/3/5742714_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/a9/3/5742714_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/a9/3/5742714_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book" data-id="1-1">
                     <img src="https://s01.static.libri.hu/cover/b6/b/711537_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/b6/b/711537_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/b6/b/711537_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/b6/b/711537_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/b6/b/711537_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/a9/3/5742714_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/a9/3/5742714_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/a9/3/5742714_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/a9/3/5742714_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/a9/3/5742714_4.jpg" alt=""><br>
-                    <span class="title">Magyar szókincstár</span><br>
-                    <span class="author">A könyv szerzője</span><br>
-                    <button>Kosárba</button>
-                </div>
-                <div class="book">
-                    <img src="https://s01.static.libri.hu/cover/a9/3/5742714_4.jpg" alt=""><br>
                     <span class="title">Magyar szókincstár</span><br>
                     <span class="author">A könyv szerzője</span><br>
                     <button>Kosárba</button>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> -->
+    </main>
+    <%- include("footer.ejs") -%>
 </body>
 </html>
