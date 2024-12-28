@@ -4,14 +4,14 @@ fetch(`/webshop/lekeres/${location.href.split("/")[4]}`)
 
     const thTextObject = {"Író": "book_author", "Kiadás éve": "year_of_publication", "Oldalak száma": "number_of_pages", "ISBN-szám": "ISBN"}
 
-    const informationDiv = document.querySelector(".information")
+    const bookCardInformationDiv = document.querySelector(".book-card-information")
 
-    const imgAndTitleDiv = divCreate("img-and-title")
+    const bookCardDiv = divCreate("book-card")
 
-    const imgDiv = divCreate("img")
-    const bookImg = imgCreate(data[0].image)
+    const bookCardImgDiv = divCreate("book-card-img")
+    const bookCardImg = imgCreate(data[0].image)
 
-    const titleAndTableDiv = divCreate("title-and-table")
+    const bookCardDetailsDiv = divCreate("book-card-details")
     const bookNameP = pCreate("book-name", data[0].book_name)
 
     let tableElement = document.createElement("table")
@@ -22,7 +22,9 @@ fetch(`/webshop/lekeres/${location.href.split("/")[4]}`)
     const thTextObjectKeys = Array.from(Object.keys(thTextObject))
     const thTextObjectValues = Array.from(Object.values(thTextObject))
 
-    const descriptionP = pCreate("description", data[0].description)
+    const cartButton = buttonCreate("Kosárba")
+
+    const descriptionP = pCreate("book-card-description", data[0].description)
 
 
     for (let i = 0; i < 4; i++) {
@@ -38,19 +40,41 @@ fetch(`/webshop/lekeres/${location.href.split("/")[4]}`)
     
     tableElement.appendChild(tbodyElement)
 
-    titleAndTableDiv.appendChild(bookNameP)
-    titleAndTableDiv.appendChild(tableElement)
+    bookCardDetailsDiv.appendChild(bookNameP)
+    bookCardDetailsDiv.appendChild(tableElement)
+    bookCardDetailsDiv.appendChild(cartButton)
 
-    imgDiv.appendChild(bookImg)
+    bookCardImgDiv.appendChild(bookCardImg)
 
-    imgAndTitleDiv.appendChild(imgDiv)
-    imgAndTitleDiv.appendChild(titleAndTableDiv)
+    bookCardDiv.appendChild(bookCardImgDiv)
+    bookCardDiv.appendChild(bookCardDetailsDiv)
 
-    informationDiv.appendChild(imgAndTitleDiv)
-    informationDiv.appendChild(descriptionP)
+    bookCardInformationDiv.appendChild(bookCardDiv)
+    bookCardInformationDiv.appendChild(descriptionP)
 
 
     moreBooksCreate(data)
+
+
+    document.title = `${data[0].book_name.split("-")[0]} - Könyvmolyok menedéke`
+
+
+    document.querySelectorAll(".book").forEach(element => {
+        element.addEventListener("click", (e) => {
+            const currentLocationURL = location.href.split("/")
+            const newLocationURL = `${currentLocationURL[0]}//${currentLocationURL[2]}/webshop/${e.currentTarget.getAttribute("data-url")}`
+
+            location.href = newLocationURL
+            
+        })
+    })
+
+    document.querySelectorAll("button").forEach(element => {
+        element.addEventListener("click", (e) => {
+            e.stopPropagation()
+            alert("A kurva anyád :)")
+        })
+    })
 
 })
 
@@ -138,7 +162,7 @@ function moreBooksCreate(data) {
         const bookDiv = divCreate("book")
         bookDiv.setAttribute("data-url", currentBook.url)
 
-        const bookImg = imgCreate(currentBook.image)
+        const bookCardImg = imgCreate(currentBook.image)
 
         const book_name = currentBook.book_name.split("-")
         const titleSpan = spanCreate("title", book_name[0])
@@ -149,7 +173,7 @@ function moreBooksCreate(data) {
         const brElement = brCreate()
 
 
-        bookDiv.appendChild(bookImg)
+        bookDiv.appendChild(bookCardImg)
         bookDiv.appendChild(brElement)
 
         bookDiv.appendChild(titleSpan)

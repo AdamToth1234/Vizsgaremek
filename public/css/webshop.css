@@ -37,7 +37,7 @@ body {
     margin-right: 25px;
 }
 
-.books-and-category {
+.library {
     margin: 10px;
     margin-top: 20rem;
     display: flex;
@@ -113,18 +113,19 @@ body {
     opacity: 0.8;
 }
 
-.category .books .book button {
+button {
     background: linear-gradient(to right, rgb(47, 95, 158), rgb(35, 43, 139));
     border: none;
     color: white;
     border-radius: 10px;
-    padding: 5px 10px;
+    padding: 7px 10px;
     transition: var(--transition);
     margin-top: auto;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
-.category .books .book button:hover {
+button:hover {
     transform: translateY(-5px);
 }
 

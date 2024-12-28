@@ -6,7 +6,7 @@ body {
     color: white;
 }
 
-main, .information {
+main, .book-card-information {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,40 +14,52 @@ main, .information {
     margin-top: 30px;
 }
 
-.information .img-and-title {
+.book-card-information .book-card {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.information .img-and-title .img {
+.book-card-information .book-card .book-card-img {
     margin-right: 80px;
 }
 
-.information .img-and-title .img img {
+.book-card-information .book-card .book-card-img img {
+    width: 220px;
+    height: auto;
     border-radius: 40px;
 
 }
 
-.information .img-and-title .title-and-table .book-name {
+.book-card-information .book-card .book-card-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-card-information .book-card .book-card-details .book-name {
     font-size: 1.5rem;
     font-weight: bold;
     max-width: 550px;
 }
 
-.information .img-and-title .title-and-table table {
+.book-card-information .book-card .book-card-details table {
     margin-top: 20px;
 }
 
 th {
-    width: 200px;
+    vertical-align: middle;
+    width: 250px;
 }
 
 td {
-    width: 200px;
+    width: 250px;
 }
 
-.information .description {
+.book-card-information .book-card .book-card-details button {
+    margin-top: 10px;
+}
+
+.book-card-information .book-card-description {
     width: 800px;
     margin-top: 30px;
 }

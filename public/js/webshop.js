@@ -1,10 +1,10 @@
-const categoryNames = ["Érdekel a törénelem? Történelmi könyveink", "Kocka vagy? Számtech könyveink", "Rajongsz a regényekért? Szépirodalmi könyveink", "Benne vagy a kriptóban? Pénz és gazdaság könyveink", "Most kezded az iskolát, vagy netán érettségizel? Segédkönyveink", "Lexikonok rajongója vagy? Lexikonok és enciklopédiák", "Érdekel a sport? Sport könyveink", "Kezdő szülő vagy? Család és szülő könyveink"]
+const categoryNames = ["Érdekel a törénelem? Történelmi könyveink", "Kocka vagy? Számtech könyveink", "Rajongsz a regényekért? Szépirodalmi könyveink", "Lexikonok rajongója vagy? Lexikonok és enciklopédiák", "Benne vagy a kriptóban? Pénz és gazdaság könyveink", "Most kezded az iskolát, vagy netán érettségizel? Segédkönyveink", "Érdekel a sport? Sport könyveink", "Kezdő szülő vagy? Család és szülő könyveink"]
 
 
 fetch("/konyvek")
 .then(result => result.json())
 .then(data => {
-    const booksAndCategoryDiv = document.querySelector(".books-and-category")
+    const booksAndCategoryDiv = document.querySelector(".library")
     let counter = 0
     categoryNames.forEach(element => {
         const categoryDiv = divCreate("category")
@@ -58,6 +58,21 @@ fetch("/konyvek")
         counter++
     })
 
+    document.querySelectorAll(".book").forEach(element => {
+        element.addEventListener("click", (e) => {
+            const currentLocationURL = location.href.split("/")
+            const newLocationURL = `${currentLocationURL[0]}//${currentLocationURL[2]}/webshop/${e.currentTarget.getAttribute("data-url")}`
+
+            location.href = newLocationURL
+        })
+    })
+
+    document.querySelectorAll("button").forEach(element => {
+        element.addEventListener("click", (e) => {
+            e.stopPropagation()
+            alert("A kurva anyád :)")
+        })
+    })
 })
 
 
