@@ -1,3 +1,6 @@
+import { getCookie, setCookie } from "./cookie.mjs"
+
+
 const categoryNames = ["Érdekel a törénelem? Történelmi könyveink", "Kocka vagy? Számtech könyveink", "Rajongsz a regényekért? Szépirodalmi könyveink", "Lexikonok rajongója vagy? Lexikonok és enciklopédiák", "Benne vagy a kriptóban? Pénz és gazdaság könyveink", "Most kezded az iskolát, vagy netán érettségizel? Segédkönyveink", "Érdekel a sport? Sport könyveink", "Kezdő szülő vagy? Család és szülő könyveink"]
 
 
@@ -24,6 +27,7 @@ fetch("/konyvek")
 
             const bookDiv = divCreate("book")
             bookDiv.setAttribute("data-url", currentBook.url)
+            bookDiv.setAttribute("data-id", currentBook.id)
 
             const bookImg = imgCreate(currentBook.image)
 
@@ -70,7 +74,13 @@ fetch("/konyvek")
     document.querySelectorAll("button").forEach(element => {
         element.addEventListener("click", (e) => {
             e.stopPropagation()
-            alert("A kurva anyád :)")
+
+            const cookieCart = getCookie()
+            cookieCart.push(element.parentElement.getAttribute("data-id"))
+
+            setCookie(cookieCart)
+
+            alert(`${Array.from(element.parentElement.children)[1].innerHTML.trim()} nevű könyv kosárhoz adva`)
         })
     })
 })
@@ -83,11 +93,13 @@ function divCreate(className) {
     return divElement
 }
 
+
 function imgCreate(src) {
     let imgElement = document.createElement("img")
     imgElement.src = src
     return imgElement
 }
+
 
 function spanCreate(className, text) {
     let spanElement = document.createElement("span")
@@ -96,11 +108,13 @@ function spanCreate(className, text) {
     return spanElement
 }
 
+
 function buttonCreate(text) {
     let buttonElement = document.createElement("button")
     buttonElement.innerHTML = text
     return buttonElement
 }
+
 
 function brCreate() {
     let brElement = document.createElement("br")

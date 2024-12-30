@@ -15,6 +15,28 @@ router.get("/register", checkNotAuthenticated, (req, res) => {
     res.render("register")
 })
 
+router.get("/cart", checkNotAuthenticated, (req, res) => {
+    res.render("cart")
+})
+
+
+router.post("/cart-get", async (req, res) => {
+    const db = await connect()
+    const col = db.collection("books")
+    const idArray = req.body.content
+    const documentArray = []
+    if (idArray.length == 0) {
+        return res.status(200).json("Üres a lista!")
+    }
+
+    for (const i of idArray) {
+        const document = await col.findOne({ id: i})
+        documentArray.push(document)
+    }
+    res.status(200).json(documentArray)
+
+})
+
 router.get("/konyvek", async (req, res) => {
     const db = await connect()
     const cols = await db.listCollections().toArray()

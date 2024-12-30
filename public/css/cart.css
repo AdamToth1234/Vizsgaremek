@@ -1,0 +1,61 @@
+body {
+    font-family: "Roboto";
+    background: linear-gradient(to right, rgb(15, 15, 15), rgb(20, 20, 20));
+    color: white;
+}
+
+.cart-wrapper {
+    margin: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-wrapper .books {
+    padding: 0 30px;
+    width: 1000px;
+}
+
+.cart-wrapper .books .book {
+    width: 100%;
+    border: 1px solid white;
+    padding: 20px;
+}
+
+.cart-wrapper .books .book .book-information {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-wrapper .books .book .book-information img {
+    align-self: center;
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.cart-wrapper .books .book .book-information button {
+    border: none;
+    color: rgb(208, 18, 18);
+    background-color: transparent;
+}
+
+.cart-wrapper .books .book .book-information .book-information-basic {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-wrapper .books .book .book-information .book-information-basic .title {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: white;
+    text-align: center;
+}
+
+.cart-wrapper .books .book .book-information .book-information-basic .author {
+    text-align: center;
+    color: white;
+    opacity: 0.8;
+}

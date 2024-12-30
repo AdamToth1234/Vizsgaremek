@@ -12,6 +12,7 @@ fetch(`/webshop/lekeres/${location.href.split("/")[4]}`)
     const bookCardImg = imgCreate(data[0].image)
 
     const bookCardDetailsDiv = divCreate("book-card-details")
+    bookCardDetailsDiv.setAttribute("data-id", data[0].id)
     const bookNameP = pCreate("book-name", data[0].book_name)
 
     let tableElement = document.createElement("table")
@@ -152,6 +153,7 @@ function moreBooksCreate(data) {
         const randomNumber = Math.floor(Math.random() * currentBooks.length)
         
         var currentBook = currentBooks[randomNumber]
+        delete currentBooks[randomNumber]
         
 
         while (currentBook.id == data[0].id) {
