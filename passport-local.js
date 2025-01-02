@@ -12,7 +12,7 @@ passport.use(new LocalStrategy({
         const col = db.collection("users")
 
         const user = await col.findOne({ email: email})
-        await client.close();
+        await client.close()
         
         if (!user) {
             return done(null, false, { message: "Nincs ilyen felhasználó ezzel az email címmel!" })
@@ -34,7 +34,7 @@ passport.deserializeUser(async function(email, done) {
     const col = db.collection("users")
     const user = await col.findOne({ email: email})
 
-    await client.close();
+    await client.close()
 
     done(null, user)
 })

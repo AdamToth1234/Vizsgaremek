@@ -1,10 +1,16 @@
-import { getCookie, setCookie } from "./cookie.mjs"
+import { divCreate, imgCreate, spanCreate, buttonCreate, brCreate } from "./html_element_create.mjs"
+import { bookEventClick, buttonEventClick } from "./book_event_listeners.mjs"
 
 
-const categoryNames = ["Érdekel a törénelem? Történelmi könyveink", "Kocka vagy? Számtech könyveink", "Rajongsz a regényekért? Szépirodalmi könyveink", "Lexikonok rajongója vagy? Lexikonok és enciklopédiák", "Benne vagy a kriptóban? Pénz és gazdaság könyveink", "Most kezded az iskolát, vagy netán érettségizel? Segédkönyveink", "Érdekel a sport? Sport könyveink", "Kezdő szülő vagy? Család és szülő könyveink"]
+const categoryNames = ["Érdekel a törénelem? Történelmi könyveink", "Kocka vagy? Számtech könyveink", "Rajongsz a regényekért? Szépirodalmi könyveink", "Lexikonok rajongója vagy? Lexikonok és enciklopédiák", "Benne vagy a kriptóban? Pénz és gazdaság könyveink", "Most kezded az iskolát, vagy netán érettségizel? Segédkönyveink", "Társadalomtudomány könyveink", "Tudomány és természet könyveink", "Érdekel a sport? Sport könyveink", "Kezdő szülő vagy? Család és szülő könyveink"]
 
 
-fetch("/konyvek")
+fetch("/konyvek", {
+    method: "GET",
+    headers: {
+        "Fetch-header": "only-fetch"
+    }
+})
 .then(result => result.json())
 .then(data => {
     const booksAndCategoryDiv = document.querySelector(".library")
@@ -30,9 +36,10 @@ fetch("/konyvek")
             bookDiv.setAttribute("data-id", currentBook.id)
 
             const bookImg = imgCreate(currentBook.image)
+            bookImg.setAttribute("title", currentBook.book_name)
 
             const book_name = currentBook.book_name.split("-")
-            const titleSpan = spanCreate("title", book_name[0])
+            const titleSpan = spanCreate("title", book_name[0].trim())
             const authorSpan = spanCreate("author", currentBook.book_author)
 
             const cartButton = buttonCreate("Kosárba")
@@ -62,61 +69,6 @@ fetch("/konyvek")
         counter++
     })
 
-    document.querySelectorAll(".book").forEach(element => {
-        element.addEventListener("click", (e) => {
-            const currentLocationURL = location.href.split("/")
-            const newLocationURL = `${currentLocationURL[0]}//${currentLocationURL[2]}/webshop/${e.currentTarget.getAttribute("data-url")}`
-
-            location.href = newLocationURL
-        })
-    })
-
-    document.querySelectorAll("button").forEach(element => {
-        element.addEventListener("click", (e) => {
-            e.stopPropagation()
-
-            const cookieCart = getCookie()
-            cookieCart.push(element.parentElement.getAttribute("data-id"))
-
-            setCookie(cookieCart)
-
-            alert(`${Array.from(element.parentElement.children)[1].innerHTML.trim()} nevű könyv kosárhoz adva`)
-        })
-    })
+    bookEventClick()
+    buttonEventClick()
 })
-
-
-
-function divCreate(className) {
-    let divElement = document.createElement("div")
-    divElement.classList.add(className)
-    return divElement
-}
-
-
-function imgCreate(src) {
-    let imgElement = document.createElement("img")
-    imgElement.src = src
-    return imgElement
-}
-
-
-function spanCreate(className, text) {
-    let spanElement = document.createElement("span")
-    spanElement.classList.add(className)
-    spanElement.innerHTML = text
-    return spanElement
-}
-
-
-function buttonCreate(text) {
-    let buttonElement = document.createElement("button")
-    buttonElement.innerHTML = text
-    return buttonElement
-}
-
-
-function brCreate() {
-    let brElement = document.createElement("br")
-    return brElement
-}

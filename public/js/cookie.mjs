@@ -1,10 +1,7 @@
 function getCookie() {
     let dCookie = decodeURIComponent(document.cookie)
     if (dCookie == "") {
-        const date = new Date()
-        date.setTime(date.getTime() + 3 * 24 * 60 * 60 * 1000)
-        document.cookie = `cart=${JSON.stringify([])}; expires=${date}; path=/`
-        return JSON.parse(decodeURIComponent(document.cookie).split("cart=")[1])
+        setCookie([])
     }
 
     return JSON.parse(decodeURIComponent(document.cookie).split("cart=")[1])
@@ -13,7 +10,8 @@ function getCookie() {
 function setCookie(cookieIDArray) {
     const date = new Date()
     date.setTime(date.getTime() + 3 * 24 * 60 * 60 * 1000)
-    document.cookie = `cart=${JSON.stringify(cookieIDArray)}; expires=${date}; path=/`
+    document.cookie = `cart=${JSON.stringify(cookieIDArray)}; expires=${date.toUTCString()}; path=/`
 }
+
 
 export { getCookie, setCookie }

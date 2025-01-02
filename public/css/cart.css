@@ -12,23 +12,29 @@ body {
 }
 
 .cart-wrapper .books {
-    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
     width: 1000px;
 }
 
-.cart-wrapper .books .book {
-    width: 100%;
-    border: 1px solid white;
-    padding: 20px;
+.cart-wrapper .books p {
+    margin: 10rem 0;
+    font-size: 1.3rem;
+    align-self: center;
 }
 
-.cart-wrapper .books .book .book-information {
+.cart-wrapper .books .book {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    border: 1px solid white;
+    padding: 13px;
+    cursor: pointer;
 }
 
-.cart-wrapper .books .book .book-information img {
+.cart-wrapper .books .book img {
     align-self: center;
     width: 150px;
     height: 200px;
@@ -36,26 +42,37 @@ body {
     margin-bottom: 10px;
 }
 
-.cart-wrapper .books .book .book-information button {
+.cart-wrapper .books .book button {
     border: none;
     color: rgb(208, 18, 18);
     background-color: transparent;
 }
 
-.cart-wrapper .books .book .book-information .book-information-basic {
+.cart-wrapper .books .book .book-information {
     display: flex;
     flex-direction: column;
 }
 
-.cart-wrapper .books .book .book-information .book-information-basic .title {
+.cart-wrapper .books .book .book-information .title {
     font-weight: bold;
     font-size: 1.3rem;
     color: white;
     text-align: center;
 }
 
-.cart-wrapper .books .book .book-information .book-information-basic .author {
+.cart-wrapper .books .book .book-information .author {
     text-align: center;
     color: white;
     opacity: 0.8;
+}
+
+
+@media (max-width: 600px) {
+    .cart-wrapper .books .book {
+        flex-direction: column;
+    }
+
+    .cart-wrapper .books .book .book-information {
+        margin: 20px 0;
+    }
 }

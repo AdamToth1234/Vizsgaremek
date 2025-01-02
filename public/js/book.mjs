@@ -1,7 +1,15 @@
-fetch(`/webshop/lekeres/${location.href.split("/")[4]}`)
+import { divCreate, imgCreate, spanCreate, buttonCreate, brCreate, pCreate, trCreate, thCreate } from "./html_element_create.mjs"
+import { bookEventClick, buttonEventClick } from "./book_event_listeners.mjs"
+
+
+fetch(`/webshop/lekeres/${location.href.split("/")[4]}`, {
+    method: "GET",
+    headers: {
+        "Fetch-header": "only-fetch"
+    }
+})
 .then(result => result.json())
 .then(data => {
-
     const thTextObject = {"Író": "book_author", "Kiadás éve": "year_of_publication", "Oldalak száma": "number_of_pages", "ISBN-szám": "ISBN"}
 
     const bookCardInformationDiv = document.querySelector(".book-card-information")
@@ -60,74 +68,12 @@ fetch(`/webshop/lekeres/${location.href.split("/")[4]}`)
     document.title = `${data[0].book_name.split("-")[0]} - Könyvmolyok menedéke`
 
 
-    document.querySelectorAll(".book").forEach(element => {
-        element.addEventListener("click", (e) => {
-            const currentLocationURL = location.href.split("/")
-            const newLocationURL = `${currentLocationURL[0]}//${currentLocationURL[2]}/webshop/${e.currentTarget.getAttribute("data-url")}`
-
-            location.href = newLocationURL
-            
-        })
-    })
-
-    document.querySelectorAll("button").forEach(element => {
-        element.addEventListener("click", (e) => {
-            e.stopPropagation()
-            alert("A kurva anyád :)")
-        })
-    })
+    bookEventClick()
+    buttonEventClick()
 
 })
 
 
-function divCreate(className) {
-    let divElement = document.createElement("div")
-    divElement.classList.add(className)
-    return divElement
-}
-
-function imgCreate(src) {
-    let imgElement = document.createElement("img")
-    imgElement.src = src
-    return imgElement
-}
-
-function spanCreate(className, text) {
-    let spanElement = document.createElement("span")
-    spanElement.classList.add(className)
-    spanElement.innerHTML = text
-    return spanElement
-}
-
-function pCreate(className, text) {
-    let pElement = document.createElement("p")
-    pElement.classList.add(className)
-    pElement.innerHTML = text
-    return pElement
-}
-
-function buttonCreate(text) {
-    let buttonElement = document.createElement("button")
-    buttonElement.innerHTML = text
-    return buttonElement
-}
-
-function brCreate() {
-    let brElement = document.createElement("br")
-    return brElement
-}
-
-function trCreate() {
-    let trElement = document.createElement("tr")
-    return trElement
-}
-
-function thCreate(text) {
-    let thElement = document.createElement("th")
-    thElement.scope = "row"
-    thElement.innerHTML = text
-    return thElement
-}
 
 function tdCreate(text) {
     let tdElement = document.createElement("td")
@@ -163,11 +109,12 @@ function moreBooksCreate(data) {
 
         const bookDiv = divCreate("book")
         bookDiv.setAttribute("data-url", currentBook.url)
+        bookDiv.setAttribute("data-id", currentBook.id)
 
         const bookCardImg = imgCreate(currentBook.image)
 
         const book_name = currentBook.book_name.split("-")
-        const titleSpan = spanCreate("title", book_name[0])
+        const titleSpan = spanCreate("title", book_name[0].trim())
         const authorSpan = spanCreate("author", currentBook.book_author)
 
         const cartButton = buttonCreate("Kosárba")

@@ -124,16 +124,16 @@ html {
     margin-top: 15px;
 }
 
+a {
+    color: white;
+}
+
+.login form span a, .register form span a {
+    color: rgb(34, 151, 253);
+}
+
 .login button:hover, .register button:hover {
     background-color: rgb(189, 187, 187);
-}
-
-.login button span, .register button span {
-    margin-right: 7px;
-}
-
-a {
-    color: rgb(34, 151, 253);
 }
 
 ::placeholder {

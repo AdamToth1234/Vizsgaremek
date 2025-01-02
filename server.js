@@ -61,10 +61,11 @@ app.post("/register", async (req, res) => {
         data.password = hashedPassword
 
         await col.insertMany(result)
-        await client.close();
+        await client.close()
         res.redirect("/login")
     }
 })
+
 
 
 function checkAuthenticated(req, res, next) {
@@ -75,9 +76,10 @@ function checkAuthenticated(req, res, next) {
     res.redirect("/login")
 }
 
+
 function checkNotAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
-        return res.redirect("/dashboard")
+        return res.redirect("/webshop")
     }
 
     next()

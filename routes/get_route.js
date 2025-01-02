@@ -33,11 +33,13 @@ router.post("/cart-get", async (req, res) => {
         const document = await col.findOne({ id: i})
         documentArray.push(document)
     }
+
+    await client.close();
     res.status(200).json(documentArray)
 
 })
 
-router.get("/konyvek", async (req, res) => {
+router.get("/konyvek", checkHeader, async (req, res) => {
     const db = await connect()
     const cols = await db.listCollections().toArray()
 
@@ -50,7 +52,8 @@ router.get("/konyvek", async (req, res) => {
             documentList.push(document)
         }
     }
-
+    
+    await client.close();
     res.status(200).json(documentList)
 })
 
@@ -64,6 +67,7 @@ router.get("/logout", checkAuthenticated, (req, res) => {
 })
 
 
+
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next()
@@ -72,9 +76,19 @@ function checkAuthenticated(req, res, next) {
     res.redirect("/login")
 }
 
+
 function checkNotAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
-        return res.redirect("/dashboard")
+        return res.redirect("/webshop")
+    }
+
+    next()
+}
+
+
+function checkHeader(req, res, next) {
+    if (!req.headers["fetch-header"]) {
+        return res.redirect("/webshop")
     }
 
     next()
